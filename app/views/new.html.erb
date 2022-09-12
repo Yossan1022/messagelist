@@ -1,0 +1,5 @@
+<h1>メッセージ新規作成ページ</h1>
+<!-- _form.html.erbを呼び出している-->
+<%= render 'form', message: @message %>
+<!-- message: @message はパーシャルに対して変数を渡している(左から右)-->
+<%= link_to '一覧に戻る', messages_path %>

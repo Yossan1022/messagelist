@@ -1,0 +1,8 @@
+<!-- フラッシュメッセージ（flash）を表示するために、ファイルを作成-->
+<!-- ハッシュなので、 each で取り出すと、 |key, value| のペアで取り出される-->
+<% flash.each do |message_type, message| %>
+<!-- @message.save が成功した場合、 message_type には :success が代入--> 
+  <div><%= message %></div>
+  <!-- message に 'Message が正常に投稿されました' が代入され、message のみ表示-->
+<% end %>
+<!-- render と書いた場所にこのファイルの記述内容が埋め込まれる-->

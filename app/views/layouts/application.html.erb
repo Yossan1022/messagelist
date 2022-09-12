@@ -1,3 +1,4 @@
+<!-- Viewのhtmlの共通部分-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +11,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body data-turbolinks="false">
+    <%= render 'layouts/navbar' %>
+    <div class="container">
+      <!-- _falash_messageの内容が埋め込まれる-->
+      <%= render 'layouts/flash_messages' %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

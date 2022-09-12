@@ -1,0 +1,24 @@
+<!-- new.html.erb と edit.html.erbを共通化-->
+<!-- フォームはform_with、message を使用してフォームを作成することを明示-->
+<%= form_with(model: message) do |f| %>
+<!-- if message.errors.any? でバリデーションエラーがあるかを確認し、あれば表示-->
+<% if message.errors.any? %>
+<!--  validates によって検証に引っかかると、自動的に message.errors 変数にエラー内容が格納される-->
+<div id="error_explanation">
+      <ul>
+        <!-- message.errors.full_messages でバリデーションエラーに対するメッセージ配列を取得し、エラーメッセージを1つずつ表示-->
+        <% message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :title, 'タイトル' %>
+  <%= f.text_field :title %>
+<!-- メッセージはフォームの横の文字-->
+  <%= f.label :content, 'メッセージ' %>
+  <!-- f.label,とf.text_field でカラムを指定し、message の中のどのカラムに対する入力欄なのかを明示-->
+  <%= f.text_field :content %>
+<!--f.submit で送信ボタンを生成-->
+  <%= f.submit '投稿' %>
+<% end %>

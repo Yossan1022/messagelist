@@ -1,0 +1,12 @@
+<h1>メッセージ一覧</h1>
+
+<ul>
+  <!--def indexの@messages = Message.allで全てのレコードを取り出して一つずつcontentカラムの値を表示 -->
+  <% @messages.each do |message| %>
+  <!-- link_to 表示文字列, リンク先となる。リンク先をModelにすると同じフォルダのshowにいく-->
+    <li><%= link_to message.id, message %> : <%= message.title %> &gt; <%= message.content %></li>
+    <!-- &gt; は、 > をHTMLで表示させるための記号-->
+  <% end %>
+</ul>
+<!-- new_message_pathはindexからnewへのリンクを作成-->
+<%= link_to '新規メッセージの投稿', new_message_path %>

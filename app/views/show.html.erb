@@ -1,0 +1,12 @@
+<!-- def showから@message というレコード1件が届けられているを使って表示-->
+<h1>id: <%= @message.id %> のメッセージ詳細ページ</h1>
+<p>タイトル: <%= @message.title %></p>
+<!-- @messageの内容を表示-->
+<p><%= @message.content %></p>
+<!--showからindexに戻れるリンク-->
+<%= link_to '一覧に戻る', messages_path %>
+<!--editビューにアクセスできるリンク-->
+<%= link_to 'このメッセージを編集する', edit_message_path(@message) %>
+<!--method: :deleteでDELETEメソッドを送信することを明示。リンク先に@messageにするとshowに飛ぶ-->
+<%= link_to 'このメッセージを削除する', @message, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<!-- data: { confirm: ... }はアラートを使用javascriptで-->
